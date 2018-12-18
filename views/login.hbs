@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+{{#if user}}
+
+{{else}}
+<body>
+	<div class="row mt-sm-4 mt-md-0 pl-5">
+        <div class="col-sm-12 col-md-8">
+            <h3>{{message}}</h3>
+        </div>
+    </div>
+	<div class="row mt-sm-4 mt-md-0 pl-5">
+        <div class="col-sm-12 col-md-8">
+            <h3>Login:</h3>
+        </div>
+    </div>
+    <form method="POST" action="/login">
+        <div class="form-group pl-5">
+            <label for="username">Username</label>
+            <input type="username" class="form-control" id="username" name="username" placeholder="Username">
+        </div>
+        <div class="form-group pl-5">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary ml-5 mb-5">Submit</button>
+    </form>
+</body>
+{{/if}}
+
+
+</html>

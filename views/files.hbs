@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<body>
+    {{#if user}}
+    <h5 class="/?filter={{{this}}}">{{message}}</h5>
+    <a href="/files/?filter=videofilt">Filter By: Video Files</a>
+    <a href="/files/?filter=audiofilt">Filter By: Audio Files</a>
+    {{#each files}}
+    <div class="row">
+        <div class="col">
+            <div class="card mb-5">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{this.filename}}</h5>
+                    {{#if this.isAudio}}
+                    <audio controls>
+                        <source src="/files/{{this.filename}}" type={{this.contentType}}>
+                    </audio>
+                    {{else}}
+                    <video width="320" height="240" controls>
+                        <source src="/files/{{this.filename}}" type={{this.contentType}}>
+                    </video>
+                    {{/if}}
+                    <br>
+                    <a href="/files/{{this.filename}}" class="dl" id="dl">Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    <br>
+    <a href="/files/dlall" class="dlall" id="dlall">Download All</a>
+    {{else}}
+    <div class="row mt-sm-4 mt-md-0 pl-5">
+        <div class="col-sm-12 col-md-8">
+            <h3>{{message}}</h3>
+        </div>
+    </div>
+    <div class="row mt-sm-4 mt-md-0 pl-5">
+        <div class="col-sm-12 col-md-8">
+            <h3>Login:</h3>
+        </div>
+    </div>
+    <form method="POST" action="/login">
+        <div class="form-group pl-5">
+            <label for="username">Username</label>
+            <input type="username" class="form-control" id="username" name="username" placeholder="Username">
+        </div>
+        <div class="form-group pl-5">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary ml-5 mb-5">Submit</button>
+    </form>
+    {{/if}}
+</body>
+
+</html>
