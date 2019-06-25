@@ -4,6 +4,10 @@ Sometimes when you're listening to a song, you can't help but imagine it with a 
 
 This site allows users to register and login, and then insert both audio (.mp3, .wav, .flac, .alac, .m4a, etc.) and video files (.mp4, .avi, .mkv, etc.) into a database and generates a "music video" where the audio is placed behind a video clip. (Maybe implement a basic editor?). The user can view all of their generated music videos and delete if desired.
 
+## Dependencies
+
+Will need to install MongoDB and run a local configuration, as well as type in the command "sudo npm link hbs" within project folder before running.
+
 ## Site map
 
 ![site map](documentation/sitemap.jpg)
